@@ -1,4 +1,5 @@
 Sebug-Offline
-=============
+===
+***
 
-Localhost Sebug.
+Sebug-Offline

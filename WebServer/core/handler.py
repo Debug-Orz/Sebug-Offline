@@ -20,7 +20,9 @@ class SearchHandler(BaseHandler):
         data, maxPage = get_search(keyword, page)
         if data is None:
             return render.error()
-        return render.search(keyword, data, page, maxPage)
+        elif int(page) > int(maxPage):
+            return render.error()
+        return render.search(keyword, data, int(page), int(maxPage))
 
 
 class PageHandler(BaseHandler):
@@ -28,7 +30,9 @@ class PageHandler(BaseHandler):
         data, maxPage = get_page(page)
         if data is None:
             return render.error()
-        return render.page(data, page, maxPage)
+        elif int(page) > int(maxPage):
+            return render.error()
+        return render.page(data, int(page), int(maxPage))
 
 
 class ViewHandler(BaseHandler):
@@ -36,4 +40,9 @@ class ViewHandler(BaseHandler):
         data = get_vuln(ssvid)
         if data is not None:
             return render.view(data)
+        return render.error()
+
+
+class ErrorHandler(BaseHandler):
+    def GET(self):
         return render.error()

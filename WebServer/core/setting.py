@@ -10,4 +10,4 @@ web.config.debug = True  # debug on/off
 
 db = web.database(dbn='sqlite', db=sqlite_path)
 
-render = web.template.render('templates')  # template
+render = web.template.render('templates', base='base')  # template

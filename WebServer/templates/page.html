@@ -1,47 +1,8 @@
 $def with (data, page, maxPage)
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/static/css/model.css">
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <script src="/static/js/model.js"></script>
-    <title>Sebug | Page</title>
-</head>
-<body>
-<div class="container" style="width: 870px; height: 380px;">
-
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">Sebug Offline</a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-right" role="search" name="searchForm" action="">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="keyword" value="" onkeypress=check()>
-                    </div>
-                    <button type="button" class="btn btn-default" onclick=search()>Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
 
     <div class="container" style="width: 840px; height: 480px">
         <h4>Page: $page</h4>
-        <div class="container" style="width: 780px; line-height: 26px; padding-top: 15px">
+        <div class="container" style="width: 840px; line-height: 26px; padding-top: 15px;">
             <ul>
                 $for vuln in data:
                 <li>
@@ -54,6 +15,56 @@ $def with (data, page, maxPage)
 
     <div class="container" style="width: 840px;">
         <ul class="pagination pagination-sm">
+            $if page < 5:
+                $if page == 1:
+                    <li class="disabled"><a href="#">&laquo;</a></li>
+                $else:
+                    <li><a href="./${page-1}">&laquo;</a></li>
+                $for n in range(1,6):
+                    $if n == page:
+                        <li class="active"><a href="#">$n</a></li>
+                    $else:
+                        <li><a href="./$n">$n</a></li>
+                <li><a href="#">...</a></li>
+                $for n in range(maxPage-1, maxPage+1):
+                    <li><a href="./$n">$n</a></li>
+                $if page == maxPage:
+                    <li class="disabled"><a href="#">&raquo;</a></li>
+                $else:
+                    <li><a href="./${page+1}">&raquo;</a></li>
+            $elif (page > 4) and (page < maxPage - 2):
+                <li><a href="./${page-1}">&laquo;</a></li>
+                <li><a href="./1">1</a></li>
+                <li><a href="./2">2</a></li>
+                <li><a href="#">...</a></li>
+                $for n in range(page - 1, page + 2):
+                    $if n == page:
+                        <li class="active"><a href="#">$n</a></li>
+                    $else:
+                        <li><a href="./$n">$n</a></li>
+                <li><a href="#">...</a></li>\
+                $for n in range(maxPage-1, maxPage+1):
+                    <li><a href="./$n">$n</a></li>
+                $if page == maxPage:
+                    <li class="disabled"><a href="#">&raquo;</a></li>
+                $else:
+                    <li><a href="./${page+1}">&raquo;</a></li>
+            $elif (page > maxPage - 3):
+                <li class="disabled"><a href="#">&laquo;</a></li>
+                <li><a href="./1">1</a></li>
+                <li><a href="./2">2</a></li>
+                <li><a href="#">...</a></li>
+                $for n in range(maxPage - 3, maxPage+1):
+                    $if n == page:
+                        <li class="active"><a href="#">$n</a></li>
+                    $else:
+                        <li><a href="./$n">$n</a></li>
+
+                $if page == maxPage:
+                    <li class="disabled"><a href="#">&raquo;</a></li>
+                $else:
+                    <li><a href="./${page+1}">&raquo;</a></li>
+            <!--
             <li class="disabled"><a href="#">&laquo;</a></li>
             <li class="active"><a href="#">1</a></li>
             <li><a href="#">2</a></li>
@@ -62,9 +73,6 @@ $def with (data, page, maxPage)
             <li><a href="#">4</a></li>
             <li><a href="#">5</a></li>
             <li><a href="#">&raquo;</a></li>
+            -->
         </ul>
     </div>
-
-</div>
-</body>
-</html>
