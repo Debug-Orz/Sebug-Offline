@@ -2,5 +2,6 @@
 .gitignore.swp
 .DS_Store
 .idea/
+.SebugSpider/crawls/
 *.db
 *.pyc
