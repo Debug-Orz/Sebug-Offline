@@ -1,0 +1,6 @@
+.gitingore
+.gitingore.swp
+.DS_Store
+.idea/
+*.db
+*.pyc
