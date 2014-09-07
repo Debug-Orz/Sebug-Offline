@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 __author__ = 'RickGray'
-from handler import *
 
 urls = (
-    '/', IndexHandler,
-    '/page/(\d+)', PageHandler,
-    '/search/(.*)', SearchHandler,
-    '/vulndb/ssvid/(\d+)', ViewHandler
+    '/', 'IndexHandler',
+    '/page/(\d+)', 'PageHandler',
+    '/search/(.*)', 'SearchHandler',
+    '/search/(.*)/page/(\d+)', 'SearchHandler',
+    '/vulndb/ssvid/(\d+)', 'ViewHandler'
 )

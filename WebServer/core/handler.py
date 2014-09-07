@@ -3,6 +3,7 @@
 __author__ = 'rickgray'
 from setting import *
 from model import *
+from HTMLParser import HTMLParser
 
 class BaseHandler:
     def __init__(self):
@@ -15,25 +16,24 @@ class IndexHandler(BaseHandler):
 
 
 class SearchHandler(BaseHandler):
-    def GET(self, key):
-        data = get_search(key)
+    def GET(self, keyword, page=1):
+        data, maxPage = get_search(keyword, page)
         if data is None:
             return render.error()
-        return render.search(key, data)
+        return render.search(keyword, data, page, maxPage)
 
 
 class PageHandler(BaseHandler):
     def GET(self, page):
-        data = get_page(page)
+        data, maxPage = get_page(page)
         if data is None:
             return render.error()
-        return render.page(page, data)
+        return render.page(data, page, maxPage)
 
 
 class ViewHandler(BaseHandler):
     def GET(self, ssvid):
         data = get_vuln(ssvid)
-        if data is None:
-            return render.error()
-
+        if data is not None:
+            return render.view(data)
         return render.error()

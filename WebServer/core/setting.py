@@ -3,7 +3,11 @@
 __author__ = 'rickgray'
 import web
 
-sqlite_path = 'sebug.db'
-web.config.debug = True
+
+sqlite_path = 'sebug.db'  # db file path
+
+web.config.debug = True  # debug on/off
+
 db = web.database(dbn='sqlite', db=sqlite_path)
-render = web.template.render('templates')
+
+render = web.template.render('templates')  # template

@@ -1,11 +1,12 @@
-$def with (keyword, data)
+$def with (keyword, data, page, maxPage)
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/css/model.css">
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/model.js"></script>
@@ -24,22 +25,22 @@ $def with (keyword, data)
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Sebug Offline</a>
+                <a class="navbar-brand" href="/">Sebug Offline</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-right" role="search">
+                <form class="navbar-form navbar-right" role="search" name="searchForm" action="">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search" name="keyword" value="" onkeypress=check()>
                     </div>
-                    <button type="submit" class="btn btn-default">Search</button>
+                    <button type="button" class="btn btn-default" onclick=search()>Search</button>
                 </form>
             </div>
         </div>
     </nav>
 
     <div class="container" style="width: 840px; height: 480px">
-        <h4>keyword: $keyword</h4>
+        <h4>Keyword: $keyword</h4>
         <div class="container" style="width: 780px; line-height: 26px; padding-top: 15px">
             <ul>
                 $for vuln in data:
