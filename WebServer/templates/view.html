@@ -1,0 +1,8 @@
+$def with (data)
+
+    <div class="container" style="width: 840px; height: 480px">
+        $for vuln in data:
+        <h3>$vuln['title']</h3>
+        <h4>Date: $vuln['date']</h4>
+        $:vuln['content']
+    </div>
