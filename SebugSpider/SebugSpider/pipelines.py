@@ -15,7 +15,7 @@ class SebugPipeline(object):
 
     def sqlite3_init(self):
         self.conn.execute('''
-                create table is not exists sebug_vuln (
+                create table if not exists sebug_vuln (
                     ssvid integer not null primary key,
                     title longtext not null,
                     date char(40) not null,
@@ -23,7 +23,7 @@ class SebugPipeline(object):
                 )
             ''')
         self.conn.execute('''
-                create index is not exists 'vuln_id'
+                create index if not exists 'vuln_id'
                     on 'sebug_vuln' ('ssvid')
             ''')
 

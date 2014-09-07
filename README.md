@@ -23,4 +23,3 @@ ScreenShot
 
 [img1]:http://rickgray.github.io/Mixed/images/Sebug-Offline/shot1.png
 [img2]:http://rickgray.github.io/Mixed/images/Sebug-Offline/shot2.png
-[img3]:http://rickgray.github.io/Mixed/images/Sebug-Offline/shot3.png
