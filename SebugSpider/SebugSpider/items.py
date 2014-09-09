@@ -7,12 +7,6 @@
 
 import scrapy
 
-'''
-class SebugItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
-'''
 
 class VulnItem(scrapy.Item):
     ssvid = scrapy.Field()

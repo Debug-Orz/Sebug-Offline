@@ -11,10 +11,10 @@ Sebug-Offline是由python2编写的Sebug离线版查询程序（以供一些特�
 ScreenShots
 ----
 
-### Start Page
+Start Page
 ![][img1]
 
-### Show Page
+Show Page
 ![][img2]
 
 Installation

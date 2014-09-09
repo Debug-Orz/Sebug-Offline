@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 __author__ = 'rickgray'
-from setting import *
+from settings import *
 from model import *
 from HTMLParser import HTMLParser
 

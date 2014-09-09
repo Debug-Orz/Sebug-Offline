@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 __author__ = 'RickGray'
-from core.setting import *
+from core.settings import *
 from core.urls import *
 from core.handler import *
 
