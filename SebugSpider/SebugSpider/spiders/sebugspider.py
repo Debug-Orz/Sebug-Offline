@@ -25,7 +25,12 @@ class SebugSpider(CrawlSpider):
 
         content = response.xpath('//div[@id="main"]/div[@id="content"]')
         vuln['ssvid'] = re.findall('\d+', response.url)[0]
-        vuln['date'] = re.findall('\d+-\d+-\d+', content.xpath('//div[@class="at_sebug"]/text()').extract()[0])[0]
+
+        pre_date = content.xpath('//div[@class="vuln"]/text()').extract()
+        for pre_content in pre_date:
+            if re.search('(\d+-\d+-\d+)', pre_content):
+                vuln['date'] = re.findall('(\d+-\d+-\d+)', pre_content)[0]
+        # vuln['date'] = re.findall('\d+-\d+-\d+', content.xpath('//div[@class="at_sebug"]/text()').extract()[0])[0]
 
         html_parser = HTMLParser.HTMLParser()
         vuln['title'] = cgi.escape(html_parser.unescape(
