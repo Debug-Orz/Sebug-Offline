@@ -39,4 +39,7 @@ class SebugSpider(CrawlSpider):
         # vuln['title'] = content.xpath('//h2[@class="article_title"]/text()').extract()[0]
         vuln['content'] = content.extract()[0]
 
+        # handle the content special encode
+        vuln['content'] = vuln['content'].replace('*&gt;','')
+
         return vuln
