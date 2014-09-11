@@ -34,8 +34,7 @@ class SebugSpider(CrawlSpider):
 
         html_parser = HTMLParser.HTMLParser()
         vuln['title'] = cgi.escape(html_parser.unescape(
-            re.findall('<h2 class="article_title">.*</h2>', response.body_as_unicode())[0].replace('</h2>', '').replace(
-                '<h2 class="article_title">', '')))
+            re.findall('<h2 class="article_title">(.*)</h2>', response.body_as_unicode())[0]))
         # vuln['title'] = content.xpath('//h2[@class="article_title"]/text()').extract()[0]
         vuln['content'] = content.extract()[0]
 
