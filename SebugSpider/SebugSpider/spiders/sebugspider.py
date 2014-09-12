@@ -8,6 +8,10 @@ from SebugSpider.items import VulnItem
 
 
 class SebugSpider(CrawlSpider):
+    """
+    'sebug' spider, which extract vuln info from [sebug.net]
+
+    """
     name = 'sebug'
     allowed_domains = ['sebug.net']
     start_urls = ['http://sebug.net/vuldb/vulnerabilities?start=1']

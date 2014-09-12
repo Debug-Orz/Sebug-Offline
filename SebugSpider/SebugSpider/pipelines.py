@@ -8,6 +8,10 @@ import sqlite3
 
 
 class SebugPipeline(object):
+    """
+    The pipeline to handle items extracted by 'sebug' spider
+
+    """
     def __init__(self):
         self.conn = sqlite3.connect('sebug.db')
         self.sqlite3_init()
@@ -16,6 +20,7 @@ class SebugPipeline(object):
     def sqlite3_init(self):
         """
         Init sqlite3 db file if not exists
+
         """
         self.conn.execute('''
                     create table if not exists sebug_vuln (
