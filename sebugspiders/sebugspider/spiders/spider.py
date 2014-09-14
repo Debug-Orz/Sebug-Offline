@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 __author__ = 'rickgray'
-import re, cgi, HTMLParser
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors import LinkExtractor
-from SebugSpider.items import VulnItem
+from sebugspider.items import VulnItem
+import re, cgi, HTMLParser
 
 
 class SebugSpider(CrawlSpider):
