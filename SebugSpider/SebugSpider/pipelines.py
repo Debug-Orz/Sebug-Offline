@@ -31,7 +31,7 @@ class SebugPipeline(object):
                     )
                 ''')
         self.conn.execute('''
-                    create index if not exists'vuln_id'
+                    create index if not exists 'vuln_id'
                         on 'sebug_vuln' ('ssvid')
                 ''')
 
